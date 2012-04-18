@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Visitas</title>
+
+    <link href="/assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="/assets/css/bootstrap-responsive.css" rel="stylesheet" />
+    <link href="/assets/css/style.css" rel="stylesheet" />
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+      if (typeof jQuery === "undefined")
+        document.write(unescape("%3Cscript src='/assets/js/jquery.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+
+    <script type="text/javascript" src="/assets/js/mask.js"></script>
+    <script type="text/javascript" src="/assets/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/assets/js/app.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </a>
+
+            <a class="brand" href="#">Visitas <sup class="label">0.1</sup></a>
+
+            <aside>
+              <a data-toggle="modal" href="#NovaVisita" class="btn">Nova visita</a>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="container">
+      <div class="page-header">
+        <h1>Painel</h1>
+      </div>
+
+      <section id="NovaVisita" class="modal hide fade" style="display: none;">
+        <div class="modal-header">
+          <a class="close" data-dismiss="modal">×</a>
+          <h3>Modal Heading</h3>
+        </div>
+        <div class="modal-body">
+          <form method="post" action="new/visit" class="form-horizontal">
+            <fieldset>
+              <div class="control-group">
+                <label class="control-label" for="company">Empresa</label>
+                <div class="controls">
+                  <input type="text" class="input-xlarge" name="visit[company]" id="company">
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label" for="employee">Colaborador</label>
+                <div class="controls">
+                  <input type="text" class="input-xlarge" name="visit[employee]" id="employee">
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label" for="date">Data e hora</label>
+                <div class="controls">
+                  <input type="text" class="input-xlarge" name="visit[date]" id="date">
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label" for="rating">Avaliação</label>
+                <div class="controls">
+                  <input type="text" class="input-xlarge" name="visit[rating]" id="rating">
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label" for="ingress">Ingresso</label>
+                <div class="controls">
+                  <input type="text" class="input-xlarge" name="visit[ingress]" id="ingress">
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label" for="status">Status</label>
+                <div class="controls">
+                  <input type="text" class="input-xlarge" name="visit[status]" id="status">
+                </div>
+              </div>
+            </fieldset>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Cadastrar visita</button>
+              <button class="btn" data-dismiss="modal">Fechar</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <p class="spacing">Todas os registos exibidos na aba <strong>"Visitas"</strong> são filtrados pelo mês de hoje. Sendo assim, para visualizar detalhes de visitas passadas, clique na aba <strong>"Histórico"</strong> e selecione o mês desejado. Lembrando que as visitas já encerradas ou de meses anteriores serão apenas para consultas ou exclusão.</p>
+
+      <%= yield %>
+    </section>
+
+    <footer>
+      <section class="container">
+        <p>Cwork Sistemas &copy; 2012</p>
+      </section>
+    </footer>
+  </body>
+</html>

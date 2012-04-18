@@ -1,0 +1,48 @@
+﻿<div class="row">
+  <div class="span9">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#">Visitas</a></li>
+      <li class=""><a href="#">Histórico</a></li>
+    </ul>
+
+    <% if @visit.empty? %>
+      <h6>Nenhum registro cadastrado.</h6>
+    <% else %>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th width="0%"></th>
+            <th width="40%">Empresa</th>
+            <th width="15%">Data</th>
+            <th width="30%">Colaborador</th>
+            <th width="15%"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @visit.each_with_index do |value, i| %>
+            <tr>
+              <td><%= value.token %></td>
+              <td><%= value.company %></td>
+              <td><%= value.date %></td>
+              <td><%= value.employee %></td>
+              <td align="right">
+                <a class="btn btn-danger" href="/delete/<%= value.token %>">
+                  <i class="icon-trash icon-white"></i> Remover
+                </a>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+  <div class="span3 well">
+    <div class="spacing"><span class="count">231</span> visitas</div>
+    <div class="spacing"><span class="count">126</span> pendentes</div>
+
+    <h3 class="spacing">Avaliação <small>dos envolvidos</small></h3>
+    <div class="spacing label label-info"><i class="icon-white icon-star"></i> 64 foram um sucesso.</div>
+    <div class="spacing label label-success"><i class="icon-white icon-repeat"></i> 31 relataram problemas.</div>
+    <div class="spacing label label-important"><i class="icon-white icon-remove"></i> 25 devem ser refeitas.</div>
+  </div>
+</div>
